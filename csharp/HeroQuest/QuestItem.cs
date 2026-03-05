@@ -1,6 +1,6 @@
 namespace CodingDojo;
 
-public class Item
+public class QuestItem
 {
     public string? Name { get; set; }
     
@@ -18,10 +18,10 @@ public class Item
         }
     }
     
-    public void ItemRepairBy(Player player) {
+    public void ItemRepairBy(HeroQuest heroQuest) {
         Console.WriteLine("Using the repair skill to fix the item:");
 
-        var repairAmount = -5 + ((player.CraftingSkill) * 2) + 1;
+        var repairAmount = -5 + ((heroQuest.CraftingSkill) * 2) + 1;
 
         Power =  (Power + repairAmount);
 

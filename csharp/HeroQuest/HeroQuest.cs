@@ -1,32 +1,43 @@
 namespace CodingDojo;
 
-public static class HeroQuest
+public class HeroQuest
 {
-    public static string PlayerToString(Player player)
-    {
-        return player.ToString();
-    }
+    public string? Name { get; init; }
+    
+    public int Health { get; set; }
+    
+    public int Strength { get; set; } 
+    
+    public int Magic { get; set; }
+    
+    public int CraftingSkill { get; init; }
 
-    public static void PlayerFallsDown(Player player)
+    public void FallsDown()
     {
-       player.FallsDown();
-    }
-
-    public static string ItemToString(Item item)
-    {
-        return item.ToString();
-    }
-
-    public static void ItemReduceByUsage(Item item)
-    {
-        item.ReduceByUsage();
+        Console.WriteLine("Player drops off a cliff.");
+        if (Strength < 5)
+        {
+            Health -= 10;
+            Console.WriteLine("Player's strength is too small. Health decreases by 10.");
+        }
     }
     
-    public static void ItemApplyEffectToPlayer(Player player, Item item) {
-        player.ItemApplyEffectBy(item);
+    public void ItemApplyEffectBy(QuestItem questItem) {
+        Console.WriteLine($"Applying the effect of {questItem.Name} ({questItem.Kind}):");
+
+        if (questItem.Kind == "Health") {
+            Health += questItem.Power;
+        } else if (questItem.Kind == "Strength") {
+            Strength += questItem.Power;
+        } else if (questItem.Kind == "Magic") {
+            Magic += questItem.Power;
+        }
     }
-    
-    public static void ItemRepair(Player player, Item item) {
-        item.ItemRepairBy(player);
+
+    override 
+    public string ToString()
+    {
+        return
+            $"{Name}'s Attributes:\nHealth: {Health}\nStrength: {Strength}\nMagic: {Magic}\nCrafting Skill: {CraftingSkill}\n";
     }
 }

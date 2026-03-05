@@ -1,28 +1,28 @@
 ﻿using CodingDojo;
 
-QuestData questData = new ()
+QuestAdventure questAdventure = new ()
 {
-    Player = new Player { Name = "Conan" , Health = 100, Strength = 20, Magic = 10, CraftingSkill = 10},
-    Item = new Item { Name = "Amulet of Strength", Kind = "Strength", Power = 10}
+    HeroQuest = new HeroQuest { Name = "Conan" , Health = 100, Strength = 20, Magic = 10, CraftingSkill = 10},
+    QuestItem = new QuestItem { Name = "Amulet of Strength", Kind = "Strength", Power = 10}
 };
 
-var result = HeroQuest.PlayerToString(questData.Player);
+var result = questAdventure.HeroQuest.ToString();
 Console.WriteLine(result);
 
-result = HeroQuest.ItemToString(questData.Item);
+result = questAdventure.QuestItem.ToString();
 Console.WriteLine(result);
 
-HeroQuest.ItemApplyEffectToPlayer(questData.Player, questData.Item);
-HeroQuest.ItemReduceByUsage(questData.Item);
+questAdventure.HeroQuest.ItemApplyEffectBy(questAdventure.QuestItem);
+questAdventure.QuestItem.ReduceByUsage();
 
-result = HeroQuest.PlayerToString(questData.Player);
+result = questAdventure.HeroQuest.ToString();;
 Console.WriteLine(result);
 
-result = HeroQuest.ItemToString(questData.Item);
+result = questAdventure.QuestItem.ToString();
 Console.WriteLine(result);
 
 Console.WriteLine("Player tries to repair item...");
-HeroQuest.ItemRepair(questData.Player, questData.Item);
+questAdventure.QuestItem.ItemRepairBy(questAdventure.HeroQuest);
 
-result = HeroQuest.ItemToString(questData.Item);
+result = questAdventure.QuestItem.ToString();
 Console.WriteLine(result);
