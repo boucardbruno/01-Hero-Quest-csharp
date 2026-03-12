@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CodingDojo.StrategyEffect;
 
 public class StrategyFactoryEffect(HeroQuest heroQuest)

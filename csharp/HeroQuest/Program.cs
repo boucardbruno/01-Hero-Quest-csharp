@@ -1,4 +1,5 @@
-﻿using CodingDojo;
+﻿using System;
+using CodingDojo;
 
 QuestAdventure questAdventure = new()
 {
