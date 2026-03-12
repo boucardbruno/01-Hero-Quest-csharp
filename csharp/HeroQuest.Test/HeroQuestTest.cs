@@ -7,7 +7,7 @@ public class HeroQuestTest
     private readonly QuestAdventure _questAdventure = new()
     {
         HeroQuest = new HeroQuest { Name = "Conan" , Health = 100, Strength = 20, Magic = 10, CraftingSkill = 10},
-        QuestItem = new QuestItem { Name = "Amulet of Strength", Kind = "Strength", Power = 10}
+        QuestItem = new QuestItem { Name = "Amulet of Strength", Kind = KindOfItem.Strength, Power = 10}
     };
 
     [Fact]
@@ -15,11 +15,9 @@ public class HeroQuestTest
     {
         var result = _questAdventure.HeroQuest.ToString();
 
-        var expected = "Conan's Attributes:\nHealth: 100\nStrength: 20\nMagic: " +
-                       "10\nCrafting " +
-                       "Skill: 10\n";
-
-        Assert.Equal(expected, result);
+        Assert.Equal("Conan's Attributes:\nHealth: 100\nStrength: 20\nMagic: " +
+                     "10\nCrafting " +
+                     "Skill: 10\n", result);
     }
 
     [Fact]
@@ -58,7 +56,7 @@ public class HeroQuestTest
         _questAdventure.QuestItem.Power = 1;
         _questAdventure.QuestItem.ReduceByUsage();
         Assert.Equal(0, _questAdventure.QuestItem.Power);
-        Assert.Equal("Junk", _questAdventure.QuestItem.Kind);
+        Assert.Equal(KindOfItem.Junk, _questAdventure.QuestItem.Kind);
     }
 
     [Fact]
@@ -71,7 +69,7 @@ public class HeroQuestTest
     [Fact]
     void ItemApplyEffectToPlayerJunk()
     {
-        _questAdventure.QuestItem.Kind = "Junk";
+        _questAdventure.QuestItem.Kind = KindOfItem.Junk;
         _questAdventure.HeroQuest.ItemApplyEffectBy(_questAdventure.QuestItem);
         Assert.Equal(20, _questAdventure.HeroQuest.Strength);
     }
