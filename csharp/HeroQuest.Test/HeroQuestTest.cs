@@ -1,83 +1,91 @@
+using NFluent;
+using NUnit.Framework;
+
 namespace CodingDojo.Test;
 
-using CodingDojo;
-
+[TestFixture]
 public class HeroQuestTest
 {
-    private readonly QuestAdventure _questAdventure = new()
+    private QuestAdventure _questAdventure = null!;
+    [SetUp]
+    public void Init()
     {
-        HeroQuest = new HeroQuest { Name = "Conan" , Health = 100, Strength = 20, Magic = 10, CraftingSkill = 10},
-        QuestItem = new QuestItem { Name = "Amulet of Strength", Kind = KindOfItem.Strength, Power = 10}
-    };
-
-    [Fact]
-    void PlayerToString()
+        _questAdventure = new()
+        {
+            HeroQuest = new HeroQuest { Name = "Conan", Health = 100, Strength = 20, Magic = 10, CraftingSkill = 10 },
+            QuestItem = new QuestItem { Name = "Amulet of Strength", Kind = KindOfItem.Strength, Power = 10 }
+        };
+    }
+    
+    [Test]
+    public void PlayerToString()
     {
         var result = _questAdventure.HeroQuest.ToString();
 
-        Assert.Equal("Conan's Attributes:\nHealth: 100\nStrength: 20\nMagic: " +
-                     "10\nCrafting " +
-                     "Skill: 10\n", result);
+        Check.That(result)
+            .IsEqualTo("Conan's Attributes:\nHealth: 100\nStrength: 20\nMagic: " +
+                       "10\nCrafting " +
+                       "Skill: 10\n");
     }
 
-    [Fact]
-    void PlayerFallsDown()
+    [Test]
+    public void PlayerFallsDown()
     {
         _questAdventure.HeroQuest.Strength = 3;
         _questAdventure.HeroQuest.FallsDown();
-        Assert.Equal(90, _questAdventure.HeroQuest.Health);
+        Check.That(_questAdventure.HeroQuest.Health).IsEqualTo(90);
     }
 
-    [Fact]
-    void PlayerFallsDownNoDamage()
+    [Test]
+    public void PlayerFallsDownNoDamage()
     {
         _questAdventure.HeroQuest.FallsDown();
-        Assert.Equal(100, _questAdventure.HeroQuest.Health);
+        Check.That(_questAdventure.HeroQuest.Health).IsEqualTo(100);
     }
 
-    [Fact]
-    void ItemToString()
+    [Test]
+    public void ItemToString()
     {
         var result = _questAdventure.QuestItem.ToString();
         var expected = "Item: Amulet of Strength\nKind: Strength\nPower: 10\n";
-        Assert.Equal(expected, result);
+        Check.That(result).IsEqualTo(expected);
     }
 
-    [Fact]
-    void ItemReduceByUsage()
+    [Test]
+    public void ItemReduceByUsage()
     {
         _questAdventure.QuestItem.ReduceByUsage();
-        Assert.Equal(5, _questAdventure.QuestItem.Power);
+        Check.That(_questAdventure.QuestItem.Power).IsEqualTo(5);
     }
 
-    [Fact]
-    void ItemReduceByUsageToJunk()
+    [Test]
+    public void ItemReduceByUsageToJunk()
     {
         _questAdventure.QuestItem.Power = 1;
         _questAdventure.QuestItem.ReduceByUsage();
-        Assert.Equal(0, _questAdventure.QuestItem.Power);
-        Assert.Equal(KindOfItem.Junk, _questAdventure.QuestItem.Kind);
+        Check.That(_questAdventure.QuestItem.Power).IsEqualTo(0);
+        Check.That(_questAdventure.QuestItem.Kind).IsEqualTo(KindOfItem.Junk);
     }
 
-    [Fact]
-    void ItemApplyEffectToPlayer()
+    [Test]
+    public void ItemApplyEffectToPlayer()
     {
         _questAdventure.HeroQuest.ItemApplyEffectBy(_questAdventure.QuestItem);
-        Assert.Equal(30, _questAdventure.HeroQuest.Strength);
+        Check.That(_questAdventure.HeroQuest.Strength).IsEqualTo(30);
     }
 
-    [Fact]
-    void ItemApplyEffectToPlayerJunk()
+    [Test]
+    public void ItemApplyEffectToPlayerJunk()
     {
         _questAdventure.QuestItem.Kind = KindOfItem.Junk;
         _questAdventure.HeroQuest.ItemApplyEffectBy(_questAdventure.QuestItem);
-        Assert.Equal(20, _questAdventure.HeroQuest.Strength);
+        Check.That(_questAdventure.HeroQuest.Strength).IsEqualTo(20);
     }
 
-    [Fact]
-    void ItemRepair()
+    [Test]
+    public void ItemRepair()
     {
-         _questAdventure.QuestItem.ItemRepairBy(_questAdventure.HeroQuest);
-        Assert.Equal(26, _questAdventure.QuestItem.Power);
+        _questAdventure.QuestItem.ItemRepairBy(_questAdventure.HeroQuest);
+        Check.That(_questAdventure.QuestItem.Power).IsEqualTo(26);
     }
 }

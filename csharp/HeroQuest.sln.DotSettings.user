@@ -1,6 +1,16 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=87e44037_002Dc8d2_002D4a40_002D8907_002D6757b81ea22a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="HeroQuestTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=830cac0a_002D8f79_002D4880_002D95eb_002D433e798fda5e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ItemApplyEffectToPlayerJunk #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::C2909C30-9A1F-433F-8CBF-B6CDBFF61136::net8.0::CodingDojo.Test.HeroQuestTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C2909C30-9A1F-433F-8CBF-B6CDBFF61136::net8.0::CodingDojo.Test.HeroQuestTest.ItemApplyEffectToPlayerJunk&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=87e44037_002Dc8d2_002D4a40_002D8907_002D6757b81ea22a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="HeroQuestTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C2909C30-9A1F-433F-8CBF-B6CDBFF61136::net8.0::CodingDojo.Test.HeroQuestTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f282bb5c_002D29de_002D451c_002Dadcd_002D9a6018bc15e1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ItemApplyEffectToPlayerJunk" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C2909C30-9A1F-433F-8CBF-B6CDBFF61136::net8.0::CodingDojo.Test.HeroQuestTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

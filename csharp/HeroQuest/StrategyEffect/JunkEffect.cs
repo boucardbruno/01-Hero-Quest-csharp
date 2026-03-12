@@ -1,8 +1,8 @@
 namespace CodingDojo.StrategyEffect;
 
-internal class JunkEffect(HeroQuest heroQuest) : IProvideEffect
+internal class JunkEffect(HeroQuest _) : IProvideEffect
 {
-    public void ApplyEffect(QuestItem questItem)
+    public void ApplyEffect(QuestItem _)
     {
     }
 }
